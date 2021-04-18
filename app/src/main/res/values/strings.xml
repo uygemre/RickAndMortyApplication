@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">RickAndMorty</string>
+    <string name="filter">Filter</string>
+    <string name="clear">Clear</string>
+    <string name="name">Name:</string>
+    <string name="hint_filter_by_name">Filter by name</string>
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">Unknown</string>
+    <string name="human">Human</string>
+    <string name="status">Status</string>
+    <string name="gender">Gender:</string>
+    <string name="origin_location_name">Origin Location Name:</string>
+    <string name="number_of_episodes">Number of episodes:</string>
+    <string name="last_known_location_name">Last known location Name:</string>
+    <string name="last_seen_episode_name_and_air_date">Last seen episode name and air date:</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+</resources>

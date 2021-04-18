@@ -1,0 +1,1 @@
+# Rick and Morty Android Application built in MVVM, Dagger2 and RxJava2

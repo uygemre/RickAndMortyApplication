@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+
+def buildVersionName = "4.0.0"
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+
+        applicationId "com.base.rickandmorty"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 100
+        versionName buildVersionName
+        buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            manifestPlaceholders = [crashlyticsEnabled: false]
+            minifyEnabled false
+        }
+
+        debug {
+            manifestPlaceholders = [crashlyticsEnabled: true]
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            debuggable true
+        }
+        ext.betaDistributionReleaseNotesFilePath = file("../change.log").absolutePath
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            applicationId 'com.base.rickandmorty'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompat
+        targetCompatibility versions.targetCompat
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':data')
+    implementation project(':component')
+    implementation(deps.android.firebaseAnalytics)
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    kapt deps.android.roomCompiler
+    kapt deps.android.lifecycleCompiler
+    kapt deps.google.daggerProcessor
+    kapt deps.google.daggerAndroidProcessor
+    kapt deps.state.processor
+
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.0'
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+}

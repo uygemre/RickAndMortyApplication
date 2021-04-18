@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/material_8dp">
+
+    <RelativeLayout
+        android:id="@+id/rootCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_character"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            android:src="@color/black"
+            app:civ_border_color="@android:color/transparent" />
+
+        <RelativeLayout
+            android:id="@+id/rootName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv_character">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/material_12dp"
+                android:layout_marginTop="@dimen/material_4dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Rick And Morty"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/ib_favorite"
+                android:layout_width="@dimen/material_16dp"
+                android:layout_height="@dimen/material_16dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/material_8dp"
+                android:layout_marginTop="@dimen/material_4dp"
+                android:layout_toEndOf="@id/tv_name"
+                android:background="@null"
+                android:src="@drawable/ic_favorite_unselected_16" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_species"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rootName"
+            android:layout_marginStart="@dimen/material_12dp"
+            android:layout_marginTop="@dimen/material_4dp"
+            android:layout_toEndOf="@id/iv_character"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="@string/human"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_species"
+            android:layout_marginStart="@dimen/material_12dp"
+            android:layout_marginTop="@dimen/material_4dp"
+            android:layout_toEndOf="@id/iv_character"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="@string/alive"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_status"
+            android:layout_width="@dimen/material_16dp"
+            android:layout_height="@dimen/material_16dp"
+            android:layout_below="@id/tv_species"
+            android:layout_marginStart="@dimen/material_4dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@id/tv_status"
+            android:src="@color/black" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.25dp"
+        android:layout_below="@id/rootCard"
+        android:layout_marginTop="@dimen/material_16dp"
+        android:background="@color/gray" />
+
+</RelativeLayout>

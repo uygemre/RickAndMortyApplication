@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/root_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/material_16dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:text="@string/filter"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/material_16dp"
+                android:text="@string/clear"
+                android:textAllCaps="false"
+                android:textColor="@color/red" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/material_8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="@string/name"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/material_8dp"
+                android:layout_marginEnd="@dimen/material_8dp"
+                android:background="@drawable/custom_edit_text"
+                android:fontFamily="sans-serif-condensed-light"
+                android:gravity="center"
+                android:hint="@string/hint_filter_by_name"
+                android:paddingStart="@dimen/material_8dp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/material_16dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/material_8dp"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/material_8dp"
+                android:paddingEnd="@dimen/material_8dp"
+                android:weightSum="3">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_alive" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/material_4dp"
+                    android:layout_marginBottom="@dimen/material_4dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_dead" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_unknown" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rb_alive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/material_16dp"
+                    android:layout_marginEnd="@dimen/material_16dp"
+                    android:button="@drawable/radio_button_drawable"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:paddingTop="@dimen/material_8dp"
+                    android:paddingBottom="@dimen/material_8dp"
+                    android:text="@string/alive"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_dead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/material_16dp"
+                    android:layout_marginEnd="@dimen/material_16dp"
+                    android:button="@drawable/radio_button_drawable"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:paddingTop="@dimen/material_8dp"
+                    android:paddingBottom="@dimen/material_8dp"
+                    android:text="@string/dead"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_unknown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/material_16dp"
+                    android:layout_marginEnd="@dimen/material_16dp"
+                    android:button="@drawable/radio_button_drawable"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:paddingTop="@dimen/material_8dp"
+                    android:paddingBottom="@dimen/material_8dp"
+                    android:text="@string/unknown"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_filter_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/material_16dp"
+            android:layout_marginBottom="@dimen/material_16dp"
+            android:background="@drawable/shape_radius_16_yellow"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
